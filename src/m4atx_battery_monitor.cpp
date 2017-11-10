@@ -60,7 +60,7 @@ int main(int argc, char **argv)
     m4Diagnostics diag;
     m4atx_battery_monitor::PowerReading reading;
 
-    // attempt to red the battery
+    // attempt to read the battery
     if (m4GetDiag(dev, &diag))
     {
       ROS_ERROR("Error reading from the M4-ATX.");
@@ -95,7 +95,16 @@ int main(int argc, char **argv)
     reading.header.stamp = ros::Time::now();
 
     // publish the feedback
-    diag_pub.publish(reading);
+    // diag_pub.publish(reading);
+
+    // m4atx_battery_monitor::BatteryState info;
+
+    // info.header.stamp = ros::Time::now();
+    // info.voltage = diag.vin;
+    // info.current = "NaN"
+    // info.charge ="NaN"
+    // info.capacity
+
 
     // check if we need to say something to the user
     if (ros::Time::now() > next_check)
