@@ -95,16 +95,7 @@ int main(int argc, char **argv)
     reading.header.stamp = ros::Time::now();
 
     // publish the feedback
-    // diag_pub.publish(reading);
-
-    // m4atx_battery_monitor::BatteryState info;
-
-    // info.header.stamp = ros::Time::now();
-    // info.voltage = diag.vin;
-    // info.current = "NaN"
-    // info.charge ="NaN"
-    // info.capacity
-
+    diag_pub.publish(reading);
 
     // check if we need to say something to the user
     if (ros::Time::now() > next_check)
